@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <style>
+      body {
+        font-size: 34px;
+        font-family: Tahoma, Verdana, sans-serif;
+      }
+        .calculator {
+            width: 355px;
+            margin: 50px auto;
+            /* padding: 20px; */
+            border: 6px solid #000000;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: Tahoma, Verdana, sans-serif;
+            background-color: #eaeaea;
+        }
+
+        .top {
+            background-color: black;
+            height: 78px;
+            min-width: 355px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 8px 3px;
+        }
+
+        #display{
+          background-color: white;
+          color: black;
+          border-radius: 10px;
+          margin-top: 11px;
+        }
+
+        .calculator input {
+            width: 330px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            
+        }
+        a {
+            text-decoration: none;
+        }
+
+    .btn4 {
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        font-size: 11px;
+        height: 41px;
+        width: 58px;
+        
+    }
+
+    #abtn4 {
+       
+        background-color: #c8c6c6c2;
+        font-size: 16px;
+        font-weight: bold;
+        
+        
+    }
+    #abtn5 {
+        background-color: #E68747;
+        font-size: 16px;
+        font-weight: bold;
+        
+    }
+    #abtn6 {
+        background: url(/pict/mbtn6.gif) no-repeat;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        
+    }
+
+    #abtn7 {
+        background-color: #B1D0E2;
+    }
+    #abtn8 {
+        width: 100%;
+        height: 40px;
+        line-height: 30px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: #B1D0E2;
+        grid-column: span 2;
+    }
+
+
+        .calculator .buttons2 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 5px;
+            
+            line-height: 41px;
+            padding: 10px;
+        }
+
+
+        .calculator button {
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            
+        }
+
+        .calculator button:hover {
+            background-color: #ccc;
+        }
+
+        .calculator select {
+            width: calc(100% - 20px);
+            padding: 5px 10px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <table>
+            <tr>
+        <div class="top">
+        <input type="text" id="display" readonly>
+    </tr>
+    </div>
+    
+    <a href="/index.html">Scientific</a>
+        <div class="buttons2">
+              <div>
+                
+                <select id="round">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                   <option value="3" selected="selected">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                </select>
+            </div>
+              <button id="abtn4" class="btn4" onclick="appendValue('(')">(</button>
+              <button id="abtn4" class="btn4" onclick="appendValue(')')">)</button>
+              <button id="abtn5" class="btn4" onclick="deleteLastChar()">DEL</button>
+              <button id="abtn6" class="btn4" onclick="clearDisplay()">C</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('M+')">M+</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('M-')">M-</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('MR')">MR</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('MS')">MS</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('MC')">MC</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('7')">7</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('8')">8</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('9')">9</button>
+              <button id="abtn7" class="btn4" onclick="appendValue('/')">/</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('%')">%</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('4')">4</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('5')">5</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('6')">6</button>
+              <button id="abtn7" class="btn4" onclick="appendValue('*')">*</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('exp')">exp</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('1')">1</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('2')">2</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('3')">3</button>
+              <button id="abtn7" class="btn4" onclick="appendValue('-')">-</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('±')">±</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('0')">0</button>
+              <button id="abtn4" class="btn4" onclick="appendValue('.')">.</button>
+              <button id="abtn4" class="btn4" onclick="calculate()">=</button>
+              <button id="abtn8" class="btn4" onclick="appendValue('+')">+</button>         
+          </div>
+
+        </table>
+
+      </div>
+
+
+      
+      <script>
+        function appendValue(value) {
+            var display = document.getElementById("display");
+            if (value === "%") {
+                var expression = display.value;
+                expression = expression.replace(/%/g, '/100');
+                try {
+                    var result = eval(expression);
+                    display.value = result;
+                } catch (error) {
+                    display.value = "Error";
+                }
+            } else if (value === "€") {
+                var exchangeRate = parseFloat(prompt("Enter the current exchange rate (1€ = ?$)"));
+                if (!isNaN(exchangeRate)) {
+                    display.value = (display.value / exchangeRate).toFixed(2);
+                } else {
+                    display.value = "Invalid exchange rate";
+                }
+            } else if (value === "$") {
+                var exchangeRate = parseFloat(prompt("Enter the current exchange rate (1$ = ?€)"));
+                if (!isNaN(exchangeRate)) {
+                    display.value = (display.value * exchangeRate).toFixed(2);
+                } else {
+                    display.value = "Invalid exchange rate";
+                }
+            } else if (value === "MS") {
+                var memoryValue = parseFloat(display.value);
+                if (!isNaN(memoryValue)) {
+                    localStorage.setItem("memory", memoryValue);
+                    display.value = "MEMORY: " + memoryValue;
+                }
+            } else if (value === "M+") {
+                var memoryValue = parseFloat(localStorage.getItem("memory"));
+                if (!isNaN(memoryValue)) {
+                    var currentValue = parseFloat(display.value);
+                    if (!isNaN(currentValue)) {
+                        localStorage.setItem("memory", memoryValue + currentValue);
+                        display.value = "MEMORY: " + (memoryValue + currentValue);
+                    }
+                }
+            } else if (value === "M-") {
+                var memoryValue = parseFloat(localStorage.getItem("memory"));
+                if (!isNaN(memoryValue)) {
+                    var currentValue = parseFloat(display.value);
+                    if (!isNaN(currentValue)) {
+                        localStorage.setItem("memory", memoryValue - currentValue);
+                        display.value = "MEMORY: " + (memoryValue - currentValue);
+                    }
+                }
+            } else if (value === "MR") {
+                var memoryValue = parseFloat(localStorage.getItem("memory"));
+                if (!isNaN(memoryValue)) {
+                    display.value = memoryValue;
+                }
+            } else if (value === "MC") {
+                localStorage.removeItem("memory");
+                display.value = "";
+            } else {
+                display.value += value;
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function deleteLastChar() {
+            var currentValue = document.getElementById("display").value;
+            document.getElementById("display").value = currentValue.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                var display = document.getElementById("display");
+                var expression = display.value;
+                var result = eval(expression);
+                var roundValue = document.getElementById("round").value;
+                if (roundValue !== "") {
+                    result = result.toFixed(parseInt(roundValue));
+                }
+                display.value = result;
+            } catch (error) {
+                document.getElementById("display").value = "Error";
+            }
+        }
+    </script>
+</body>
+</html>
